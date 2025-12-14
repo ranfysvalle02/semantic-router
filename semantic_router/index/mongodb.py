@@ -6,7 +6,7 @@ from semantic_router.index.base import BaseIndex, IndexConfig
 from semantic_router.schema import Metric, SparseEmbedding, Utterance
 from semantic_router.utils.logger import logger
 
-class MongoIndex(BaseIndex):
+class MongoDBIndex(BaseIndex):
     """
     MongoDB Index for Semantic Router.
     Uses MongoDB Atlas Vector Search.
@@ -48,8 +48,8 @@ class MongoIndex(BaseIndex):
             self.collection = self.db[self.index_name]
         except ImportError as e:
             raise ImportError(
-                "Please install 'pymongo' to use MongoIndex. "
-                "You can install it with: `pip install pymongo`"
+                "Please install 'pymongo' to use MongoDBIndex. "
+                "You can install it with: `pip install 'semantic-router[mongodb]'`"
             ) from e
 
     def _get_vector_index_name(self) -> str:
