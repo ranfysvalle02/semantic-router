@@ -49,7 +49,7 @@ class MongoDBIndex(BaseIndex):
         except ImportError as e:
             raise ImportError(
                 "Please install 'pymongo' to use MongoDBIndex. "
-                "You can install it with: `pip install 'semantic-router[mongodb]'`"
+                "You can install it with: `pip install pymongo`"
             ) from e
 
     def _get_vector_index_name(self) -> str:
